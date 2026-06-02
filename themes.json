@@ -37,8 +37,7 @@
       "Victory requires self-sacrifice",
       "Controls are never displayed — the player must discover them",
       "The protagonist cannot directly interact with enemies"
-    ],
-    "engines": ["Unity", "Godot", "PICO-8", "GDevelop", "Construct 3"]
+    ]
   },
   "Brackeys": {
     "themes": [
@@ -78,8 +77,7 @@
       "Player actions leave permanent visible marks on the level",
       "All music is diegetic only — no background score",
       "Death restores a portion of health to the player"
-    ],
-    "engines": ["Unity", "Godot", "Unreal Engine", "GDevelop", "Pygame"]
+    ]
   },
   "Godot Wild Jam": {
     "themes": [
@@ -119,8 +117,7 @@
       "All menus appear as physical objects in the game world",
       "The game renders at an intentionally low resolution",
       "Death spawns a ghost that becomes a temporary ally"
-    ],
-    "engines": ["Godot 4", "Godot 3", "LÖVE2D", "PICO-8", "Custom Engine"]
+    ]
   },
   "Pure Chaos": {
     "themes": [
@@ -160,7 +157,6 @@
       "The map rearranges itself every 45 seconds",
       "A random game event fires every 15 seconds",
       "All SFX are from a completely different game genre"
-    ],
-    "engines": ["PICO-8", "Twine", "Bitsy", "LÖVE2D", "Scratch"]
+    ]
   }
 }

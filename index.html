@@ -18,7 +18,7 @@
         // ─── CONSTANTS & CONFIGURATIONS ───
 
         // Fallback data structure if the external themes.json fails to load
-        const EMPTY_BANK = { "GMTK": { themes:[], constraints:[], wildcards:[], engines:[] } };
+        const EMPTY_BANK = { "GMTK": { themes:[], constraints:[], wildcards:[] } };
         
         // Helper functions for formatting the stopwatch time (seconds -> HH:MM:SS)
         const pad = n => String(n).padStart(2, "0");
@@ -86,11 +86,9 @@
             return saved ? JSON.parse(saved) : null;
           });
 
-          // ─── DATA PROCESSING ENGINE ───
-
           /**
            * Merges the base JSON data with the user's custom LocalStorage data.
-           * CRITICAL FIX: Deep clones arrays to prevent direct mutation of the cloudBank 
+           * CRITICAL Fix: Deep clones arrays to prevent direct mutation of the cloudBank 
            * state, which would otherwise crash React's rendering fiber tree.
            */
           const getMergedBank = () => {
@@ -102,20 +100,19 @@
               merged[st] = {
                 themes: [...(base[st]?.themes || [])],
                 constraints: [...(base[st]?.constraints || [])],
-                wildcards: [...(base[st]?.wildcards || [])],
-                engines: [...(base[st]?.engines || [])]
+                wildcards: [...(base[st]?.wildcards || [])]
               };
             });
             
             // Step 2: Append custom entries from local storage into the cloned structure
             Object.keys(localBank).forEach(st => {
               if (!merged[st]) {
-                merged[st] = { themes: [], constraints: [], wildcards: [], engines: [] };
+                merged[st] = { themes: [], constraints: [], wildcards: [] };
               }
               Object.keys(localBank[st]).forEach(type => {
-                if (Array.isArray(localBank[st][type])) {
+                if (Array.isArray(localBank[st][type]) && ["themes", "constraints", "wildcards"].includes(type)) {
                   // Merge using the spread operator for immutability
-                  merged[st][type] = [...merged[st][type], ...localBank[st][type]];
+                  merged[st][type] = [...(merged[st][type] || []), ...localBank[st][type]];
                 }
               });
             });
@@ -130,13 +127,12 @@
           
           // Generates a random game jam brief based on the selected style
           const mkBrief = (targetStyle) => {
-            const pool = getMergedBank()[targetStyle] || { themes:[], constraints:[], wildcards:[], engines:[] };
+            const pool = getMergedBank()[targetStyle] || { themes:[], constraints:[], wildcards:[] };
             return {
               style: targetStyle,
               theme: pick(pool.themes),
               constraint: pick(pool.constraints),
-              wildcard: pick(pool.wildcards),
-              engine: pick(pool.engines)
+              wildcard: pick(pool.wildcards)
             };
           };
 
@@ -240,7 +236,7 @@
             if (!trimmed) return;
 
             setLocalBank(prev => {
-              const currentStyleData = prev[cStyle] || { themes: [], constraints: [], wildcards: [], engines: [] };
+              const currentStyleData = prev[cStyle] || { themes: [], constraints: [], wildcards: [] };
               const currentTypeArray = currentStyleData[cType] || [];
               
               if (currentTypeArray.includes(trimmed)) return prev; // Avoid duplicates
@@ -384,10 +380,6 @@
                         <p className="text-xs font-semibold uppercase tracking-widest text-gray-600 mb-1.5">Wildcard</p>
                         <p className="text-sm text-gray-400 italic leading-relaxed">{displayBrief.wildcard}</p>
                       </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-widest text-gray-600 mb-1.5">Suggested Engine</p>
-                        <p className="text-sm font-medium text-gray-300">{displayBrief.engine}</p>
-                      </div>
                     </div>
 
                     {/* CONFIG DRAWER PANEL FOR CUSTOM DATA */}
@@ -395,7 +387,7 @@
                       <div className="pt-2">
                         <button onClick={() => setShowCustom(!showCustom)} 
                           className="text-xs text-gray-500 hover:text-gray-300 flex items-center gap-1 transition-colors font-medium">
-                          {showCustom ? "▼ Hide custom data engine" : "▶ ＋ Add/Remove custom prompt elements (Local Storage)"}
+                          {showCustom ? "▼ Hide custom prompt panel" : "▶ ＋ Add/Remove custom prompt elements (Local Storage)"}
                         </button>
                         
                         {showCustom && (
@@ -415,7 +407,6 @@
                                     <option value="themes">Theme</option>
                                     <option value="constraints">Constraint</option>
                                     <option value="wildcards">Wildcard</option>
-                                    <option value="engines">Engine</option>
                                   </select>
                                 </div>
                               </div>

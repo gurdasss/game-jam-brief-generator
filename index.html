@@ -224,6 +224,13 @@
           };
 
           /**
+           * Removes a specific session by its unique ID.
+           */
+          const deleteSession = (id) => {
+            setSessions(prev => prev.filter(s => s.id !== id));
+          };
+
+          /**
            * Safely adds a user's custom prompt element into state.
            * Utilizes functional state updates (`prev => ...`) to ensure immutability.
            */
@@ -575,6 +582,11 @@
                                   <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${BADGE[sess.brief?.style] ?? "bg-gray-800 text-gray-400"}`}>{sess.brief?.style ?? "Sandbox"}</span>
                                   <span className="text-gray-600 text-xs font-mono">{sess.date}</span>
                                 </div>
+                                <button onClick={() => deleteSession(sess.id)}
+                                  className="text-gray-400 hover:text-red-500 transition-colors text-sm font-semibold"
+                                  title="Delete session">
+                                  ✕
+                                </button>
                               </div>
                               <p className="text-base font-bold text-white tracking-tight leading-tight">{sess.brief?.theme}</p>
                               <p className="text-gray-400 text-xs mt-0.5 mb-3 border-l-2 border-gray-800 pl-2 italic">"{sess.brief?.constraint}"</p>

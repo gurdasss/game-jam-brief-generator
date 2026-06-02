@@ -1,0 +1,166 @@
+{
+  "GMTK": {
+    "themes": [
+      "Limited Space",
+      "Only One",
+      "Dual Purpose",
+      "Out of Control",
+      "Roles Reversed",
+      "Keep It Alive",
+      "Deeper and Deeper",
+      "You Can't Stop",
+      "Transformation",
+      "Chains",
+      "Fragile",
+      "Luck Is Not a Factor"
+    ],
+    "constraints": [
+      "The game plays itself unless the player intervenes at the right moment",
+      "Only a single button controls everything",
+      "The player controls the enemies, not the hero",
+      "No UI or HUD is allowed at any point",
+      "You grow weaker as you approach the goal",
+      "Time moves in reverse — death rewinds, not resets",
+      "You can only move when enemies move",
+      "Exactly 3 colors only: black, white, and one accent",
+      "No explicit win state — the player must recognize when they've won",
+      "The camera is the primary obstacle, not the enemies",
+      "Every resource you collect permanently reduces your speed",
+      "Every action has a mandatory 3-second delay before executing"
+    ],
+    "wildcards": [
+      "You can only undo, never redo",
+      "All SFX must be made with your voice — no samples",
+      "The level procedurally destroys itself as you play",
+      "NPCs give at least one piece of intentionally bad advice",
+      "The score is always hidden from the player",
+      "Victory requires self-sacrifice",
+      "Controls are never displayed — the player must discover them",
+      "The protagonist cannot directly interact with enemies"
+    ],
+    "engines": ["Unity", "Godot", "PICO-8", "GDevelop", "Construct 3"]
+  },
+  "Brackeys": {
+    "themes": [
+      "It's Not What It Seems",
+      "Connections",
+      "Stronger Together",
+      "Second Chance",
+      "New Beginnings",
+      "Shadows",
+      "Beneath the Surface",
+      "Reflection",
+      "Evolution",
+      "Power",
+      "Together Apart",
+      "Signal"
+    ],
+    "constraints": [
+      "No jumping allowed under any circumstances",
+      "Gravity flips direction every 30 seconds",
+      "The entire game plays in reverse",
+      "Player and level move simultaneously, never independently",
+      "Enemies become temporary allies when defeated",
+      "Only 10 total lives for the entire run — no refills",
+      "All controls are permanently mirrored left to right",
+      "You can only see what the character can logically see from their position",
+      "Resources are shared between player and enemies",
+      "No direct attacks — only environmental hazards deal damage",
+      "Score is your health — points heal, damage removes score",
+      "Death rewinds time exactly 10 seconds"
+    ],
+    "wildcards": [
+      "All dialogue plays as reversed audio",
+      "The color palette shifts permanently at the game's midpoint",
+      "The narrator is unreliable and knows it",
+      "The boss encounter is disguised as a tutorial",
+      "Every object in the world has an audible heartbeat",
+      "Player actions leave permanent visible marks on the level",
+      "All music is diegetic only — no background score",
+      "Death restores a portion of health to the player"
+    ],
+    "engines": ["Unity", "Godot", "Unreal Engine", "GDevelop", "Pygame"]
+  },
+  "Godot Wild Jam": {
+    "themes": [
+      "Ancient Machines",
+      "Signal Lost",
+      "Overgrowth",
+      "Parallel Paths",
+      "Corruption",
+      "Resonance",
+      "The Forgotten",
+      "Asymmetry",
+      "Cycles",
+      "Wilderness",
+      "Decay",
+      "Emergence"
+    ],
+    "constraints": [
+      "Each ability can only be used exactly once per run",
+      "Any mistake permanently resets the score multiplier to zero",
+      "You cannot look directly at enemies — only their shadows or reflections",
+      "The map reveals only areas the player has already visited",
+      "Failure adds time to the clock instead of removing it",
+      "No traditional respawn — death leaves behind a ghost ally",
+      "Your weapon is also your only movement mechanic",
+      "Ambient light slowly drains health over time",
+      "Collecting items permanently reduces maximum movement speed",
+      "The level layout shifts completely every time the player dies",
+      "The score multiplier is the only visible health indicator",
+      "Saving progress costs resources the player must earn"
+    ],
+    "wildcards": [
+      "The level editor is part of the gameplay loop",
+      "The antagonist provides live voiceover commentary",
+      "Physics values drift by 25% every 60 seconds",
+      "Saving costs resources the player may not have",
+      "The tutorial sequence is mandatory on every single run",
+      "All menus appear as physical objects in the game world",
+      "The game renders at an intentionally low resolution",
+      "Death spawns a ghost that becomes a temporary ally"
+    ],
+    "engines": ["Godot 4", "Godot 3", "LÖVE2D", "PICO-8", "Custom Engine"]
+  },
+  "Pure Chaos": {
+    "themes": [
+      "Everything Explodes",
+      "Wrong Genre",
+      "Upside-Down Physics",
+      "The Villain Wins",
+      "Maximum Density",
+      "Glitch World",
+      "NPCs Take Over",
+      "Fourth Wall Shattered",
+      "Infinite Loop",
+      "Speed of Light",
+      "Broken Controls",
+      "Randomized Everything"
+    ],
+    "constraints": [
+      "All controls randomize completely every 10 seconds",
+      "The game runs at exactly one frame per second",
+      "The player leaves a damaging trail wherever they move",
+      "The screen rotates 90° every 60 seconds",
+      "Score counts down from a maximum — hold on to what you have",
+      "Enemies receive the player's inputs with a 3-second delay",
+      "The camera updates 3 seconds after the player actually moves",
+      "Every action has a 50% chance of doing the exact opposite",
+      "The HUD always displays incorrect values",
+      "Checkpoints deal damage instead of restoring health",
+      "Gravity direction is voted on by NPCs every 30 seconds",
+      "Every third player input is silently discarded"
+    ],
+    "wildcards": [
+      "All developer commentary is intentionally wrong",
+      "The UI actively works against the player",
+      "Unlocking any achievement permanently disables one mechanic",
+      "Difficulty settings are labeled in reverse order",
+      "The win screen appears on loss, and vice versa",
+      "The map rearranges itself every 45 seconds",
+      "A random game event fires every 15 seconds",
+      "All SFX are from a completely different game genre"
+    ],
+    "engines": ["PICO-8", "Twine", "Bitsy", "LÖVE2D", "Scratch"]
+  }
+}
